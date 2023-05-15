@@ -16,7 +16,7 @@ The following registers are exposed by the device to the host:
 |-|-|-|-|-|
 | 0x010 | maxdevs | Max Connected Count | Returns the number of devices the bridge supports simultaneously | Discarded by device |
 | 0x011 | interrupt-source | Interrupt Source Devid | Returns the device id of the device that last set Device to Host Interrupt | Signals Host to Device Interrupt on the nth connected device, where n is the value written |
-| 0x020-0x7FF | device-n-configuration | Device Configuration | Current Value (0xFFFFFFFF at startup) for register | Modifies the configuration state of the nth device (when accessing register 0x20+n), where `n<maxdevs`. See below for bitfield meaning|
+| 0x020-0x7FF | device-n-configuration | Device Configuration | Current Value (0xFFFFFFFF at init) for register | Modifies the configuration state of the nth device (when accessing register 0x20+n), where `n<maxdevs`. See below for bitfield meaning|
 
 All other registers are reserved and read as `0`, with writes being discarded. A host may not rely on the value of a reserved register, nor on the result of writing to a reserved register.
 
